@@ -6,4 +6,9 @@ With this in mind, this is mainly just a copy of certain hosts which aren't regu
 # Lists
 List Author | List Name | Page Links 
 --- | --- | ---  
+AmnestyTech | NSO Group Pegasus - Domains | [Github](https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/domains.txt)
+AmnestyTech | NSO Group Pegasus - Domains - V2 | [Github](https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/v2_domains.txt)
+AmnestyTech | NSO Group Pegasus - Domains - V3 | [Github](https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/v3_domains.txt)
+AmnestyTech | NSO Group Pegasus - Domains - V4 | [Github](https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/v4_domains.txt)
+AmnestyTech | NSO Group Pegasus - Domains - V4 Validation Domains | [Github](https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/v4_validation_domains.txt)
 hkamran80 | SmartTV2 | [Github](https://gist.githubusercontent.com/hkamran80/779019103fcd306979411d44c8d38459/raw/5d5a2950777b9c1ea88d1e7ae5db921b300d9c39/SmartTV2.txt)
