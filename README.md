@@ -1,11 +1,23 @@
-# Rasp-Pi-Hosts
-This is a private collection of merges host lists from all over which can be used as a central point for Pi-Hole.
+# Rasp-Pi-Misc
+This is a private collection of tweaks or changes which are used on my Raspberry Pi.
+
+# Update-Script.sh
+This Update-Script.sh is an executable .sh script which will automatically update the Raspberry Pi & also update the host lists contained within Pi-Hole.
+
+The script is set to automatically authorise all changes, and then automatically restart the Pi.
+
+# Pi-Hole Query Change
+This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
+
+# Host File
+One of the biggest files on this repo is a merged host list which consists of domains from all over which can be used as a central host file for Pi-Hole.
 
 Due to the nature of hosts updates, this list may be wildly out of date for certain block lists which are regularly maintained (StevenBlack, Disconnect, etc).
 
 With this in mind, this is mainly just a copy of certain hosts which aren't regularly updated, but which could disappear due to neglect or deletion.
 
-# Lists
+Below are the host files which have been merged together to make the host file found on this repo.
+
 List Author (A - Z) | List Name | Page Links 
 --- | --- | ---  
 Abuse.ch | URLhaus Host File | [Raw Page Link](https://urlhaus.abuse.ch/downloads/hostfile/)
