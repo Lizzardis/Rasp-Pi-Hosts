@@ -9,7 +9,7 @@ The script is set to automatically authorise all changes, and then automatically
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
-## Host File
+## Master-Host File
 One of the biggest files on this repo is a merged host list which consists of over 1.3 Million domains from all over which can be used as a central host file for Pi-Hole.
 
 Due to the nature of hosts updates, this list may be wildly out of date for certain block lists which are regularly maintained (StevenBlack, Disconnect, etc). Keeping such a large number of domains in 1 central location might not be good idea... Certain devices don't work well with host files over 10MB & this one is over 25MB. Raspberry Pi's should be fine though. 
@@ -19,13 +19,13 @@ I have also consolidated all of the hosts used by the blocklists below, removed 
 For what it's worth, and to make sure I remember next time, when editing the hosts file, I started by manually looking through for any recurrent top-level domains & making a note of them. Once I'd 
 got a few, I'd then CTRL+F in Notepad++, navigate to the "Replace" tab & input the following into the "Find what" box: `.*(nameoftopdomainhere.com)`. This allowed me to quickly, albeit kind of dirtily, remove hundreds of subdomains at once, leaving behind nothing but multiple lines of the top-level domain. 
 
-Ordering the lines A-Z by going to "Edit" > "Line Operations" > "Sort Lines Lexicographically Ascending" & then going back into "Edit" > "Line Operations" then "Remove Duplicate Lines" to take care of the multiple top-level domains left behind, leaving only the 1 domain in the list. This must have been done a *DOZEN* times, to take the overall number of lines down from over 2 Million, to just over 1.3 Million.
+Ordering the lines A-Z by going to "Edit" > "Line Operations" > "Sort Lines Lexicographically Ascending" & then going back into "Edit" > "Line Operations" then "Remove Duplicate Lines" to take care of the multiple top-level domains left behind, leaving only the 1 domain in the list. This must have been done a *DOZEN* times, to take the overall number of lines down from over 2 Million, to just over 1.3 Million. 
 
 With this in mind though, this host file is mainly just a copy of certain hosts which aren't regularly updated, but which could disappear due to neglect or deletion. I thought it best to have the list of domains for things such as "SmartTVAds", which I doubt is going to be regularly updated.
 
 I'd love to make a script which would collate these host files together, then I could go in & manually edit them, but alas, I might need to do a little bit of research on exactly *how* to do that first. For now, manually doing it is the way forward.
 
-Below are the host files which have been merged together to make the host file found on this repo.
+Below are the host files which have been merged together to make the host file found on this repo. If I stumble across any other host lists which I merge into the Master-hosts file, I'll also link it here too.
 
 List Author (A - Z) | List Name | Page Links 
 --- | --- | ---  
