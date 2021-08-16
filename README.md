@@ -9,7 +9,7 @@ The script is set to automatically authorise all changes, and then automatically
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
-## Master-Host File
+## Master-Hosts File
 One of the biggest files on this repo is a merged host list which consists of over 1.3 Million domains from all over which can be used as a central host file for Pi-Hole.
 
 Due to the nature of hosts updates, this list may be wildly out of date for certain block lists which are regularly maintained (StevenBlack, Disconnect, etc). Keeping such a large number of domains in 1 central location might not be good idea... Certain devices don't work well with host files over 10MB & this one is over 25MB. Raspberry Pi's should be fine though. 
