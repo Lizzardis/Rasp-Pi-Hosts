@@ -10,11 +10,9 @@ The script is set to automatically authorise all changes, and then automatically
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
 ## Master-Hosts File
-One of the biggest files on this repo is a merged host list which consists of over 1.3 Million domains from all over which can be used as a central host file for Pi-Hole.
+One of the biggest files on this repo is a merged host list which consists of nearly 3 Million domains from all over which can be used as a central host file for Pi-Hole.
 
-Due to the nature of hosts updates, this list may be wildly out of date for certain block lists which are regularly maintained (StevenBlack, Disconnect, etc). Keeping such a large number of domains in 1 central location might not be good idea... Certain devices don't work well with host files over 10MB & this one is over 25MB. Raspberry Pi's should be fine though. 
-
-I have also consolidated all of the hosts used by the blocklists below, removed any duplicates & meticulously gone through & removed any recurrent sub-domains which all stem from the same domain. This is not only to reduce the number of overall lines, therefore reducing the overall size of the file, but also to block *all* sub-domains for certain domains. This may cause a slight issue for certain use cases, however overall it should not be too much of a problem. Most of the time, if you're blcoking a certain sub-domain, chances are you want the whole domain blocked i.e doubleclick.net
+The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
 
 For what it's worth, and to make sure I remember next time, when editing the hosts file, I started by manually looking through for any recurrent top-level domains & making a note of them. Once I'd 
 got a few, I'd then CTRL+F in Notepad++, navigate to the "Replace" tab & input the following into the "Find What" box: `.*(nameoftopdomainhere.com)` & then making sure to put "$1" in the "Replace With:" box. This allowed me to quickly, albeit kind of dirtily, remove hundreds of sub-domains at once, leaving behind nothing but multiple lines of the actual domain. 
