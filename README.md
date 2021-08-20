@@ -14,10 +14,7 @@ One of the biggest files on this repo is a merged host list which consists of ne
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
 
-For what it's worth, and to make sure I remember next time, when editing the hosts file, I started by manually looking through for any recurrent top-level domains & making a note of them. Once I'd 
-got a few, I'd then CTRL+F in Notepad++, navigate to the "Replace" tab & input the following into the "Find What" box: `.*(nameoftopdomainhere.com)` & then making sure to put "$1" in the "Replace With:" box. This allowed me to quickly, albeit kind of dirtily, remove hundreds of sub-domains at once, leaving behind nothing but multiple lines of the actual domain. 
-
-Ordering the lines A-Z by going to "Edit" > "Line Operations" > "Sort Lines Lexicographically Ascending" & then going back into "Edit" > "Line Operations" then "Remove Duplicate Lines" to take care of the multiple top-level domains left behind, leaving only the 1 domain in the list. This must have been done a *DOZEN* times, to take the overall number of lines down from over 2 Million, to just over 1.3 Million. 
+Ordering the lines A-Z by going to "Edit" > "Line Operations" > "Sort Lines Lexicographically Ascending" & then going back into "Edit" > "Line Operations" then "Remove Duplicate Lines" to take care of the multiple instances of the same domain. 
 
 With this in mind though, this host file is mainly just a copy of certain hosts which aren't regularly updated, but which could disappear due to neglect or deletion. I thought it best to have the list of domains for things such as "SmartTVAds", which I doubt is going to be regularly updated.
 
