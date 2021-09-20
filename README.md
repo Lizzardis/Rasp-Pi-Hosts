@@ -4,6 +4,8 @@ This is a private collection of tweaks or changes which are used on my Raspberry
 ## Update-Script.sh
 This Update-Script.sh is an executable .sh script which will automatically update the Raspberry Pi & also update the host lists contained within Pi-Hole.
 
+Script needs to reside in /home/pi & be made to be executed by root. Script can be ran using: > sudo bash update-script.sh
+
 The script is set to automatically authorise all changes, and then automatically restart the Pi.
 
 ## Pi-Hole Query Change
