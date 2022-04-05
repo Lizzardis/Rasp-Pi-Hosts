@@ -13,7 +13,7 @@ The script is set to automatically authorise all changes, and then automatically
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
 ## Master-Hosts File
-One of the biggest files on this repo is a merged host list which consists of nearly 3 Million domains from all over which can be used as a central host file for Pi-Hole.
+One of the biggest files on this repo is a merged host list which consists of nearly **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
 
@@ -21,9 +21,9 @@ Ordering the lines A-Z in Notepad++ by going to *"Edit"* > *"Line Operations"* >
 
 Furthermore, some of these lists use the old 127.0.0.1 loopback address. This has also been replaced with 0.0.0.0 - *a non-routable meta-address used to designate an invalid, unknown, or non applicable target* - as it is not only a lot quicker due to there being no wait time for a timeout resolution, but also it seems to be less resource intensive on older machines.
 
-Some lists don't even have the 127.0.0.1 loopback address or 0.0.0.0 meta-address. With this in mind, to keep things uniform, I have added 0.0.0.0 to the beginning of each domain via regular expression in Notepad++. Ctrl + F > Replace > Make sure *"Regular Expression"* is ticked > in the "Find What:" box, put: ^ > Then in the "Replace What:" box, put 0.0.0.0.
+Some lists don't even have the 127.0.0.1 loopback address or 0.0.0.0 meta-address. With this in mind, to keep things uniform, I have added 0.0.0.0 to the beginning of each domain via regular expression in Notepad++. Ctrl + F > Replace > Make sure *"Regular Expression"* is ticked > in the *"Find What:"* box, put: ^ > Then in the *"Replace What:"* box, put 0.0.0.0.
 
-With this in mind though, this host file is mainly just a copy of certain hosts which aren't regularly updated, but which could disappear due to neglect or deletion. I thought it best to have the list of domains for things such as "SmartTVAds", which I doubt is going to be regularly updated.
+With this in mind though, this host file is mainly just a copy of certain hosts which aren't regularly updated, but which could disappear due to neglect or deletion. I thought it best to have the list of domains for things such as *"SmartTVAds"*, which I doubt is going to be regularly updated.
 
 I'd love to make a script which would collate these host files together, then I could go in & manually edit them, but alas, I might need to do a little bit of research on exactly *how* to do that first. For now, manually doing it is the way forward.
 
