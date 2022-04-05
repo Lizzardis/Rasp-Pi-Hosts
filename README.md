@@ -12,7 +12,7 @@ The script is set to automatically authorise all changes, and then automatically
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
-## Master-Hosts File
+## Master Hosts File
 One of the biggest files on this repo is a merged host list which consists of nearly **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
@@ -108,6 +108,7 @@ The Block List Project | Fraud.txt | [Raw Github](https://raw.githubusercontent.
 The Block List Project | Malware.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/malware.txt)
 The Block List Project | Phishing.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/phishing.txt)
 The Block List Project | Ransomware.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt)
+The Block List Project | Redirect.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/redirect.txt)
 The Block List Project | Scam.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/scam.txt)
 The Block List Project | Smart-TV.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/smart-tv.txt)
 The Block List Project | Tracking.txt | [Raw Github](https://raw.githubusercontent.com/blocklistproject/Lists/master/tracking.txt)
