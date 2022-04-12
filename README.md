@@ -11,6 +11,7 @@ The script is set to automatically authorise all changes, and then automatically
 
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
+
 Editing the amount of Queries shown in the recent query logs in Pi Hole can be changed via the following means:
 
 ```
@@ -49,7 +50,7 @@ lengthmenu: [
 However, remember that the APIstring from above needs to also match the *biggest* number you have in this section.
 
 ## Master Hosts File
-One of the biggest files on this repo is a merged host list which consists of nearly **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
+One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
 
