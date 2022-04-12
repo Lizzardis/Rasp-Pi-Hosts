@@ -64,9 +64,9 @@ With this in mind though, this host file is mainly just a copy of certain hosts 
 
 I'd love to make a script which would collate these host files together, then I could go in & manually edit them, but alas, I might need to do a little bit of research on exactly *how* to do that first. For now, manually doing it is the way forward.
 
-Below are the host files which have been merged together to make the host file found on this repo. If I stumble across any other host lists which I merge into the Master-hosts file, I'll also link it here too.
+Expand the table below to see the list of host files which have been merged together. If I stumble across any other host lists which I merge into the Master-hosts file, I'll also link it here too.
 
-<details><summary>Expand Table</summary>
+<details><summary>Click to see table of hosts</summary>
 <p>
 
 List Author (A - Z) | List Name | Page Links 
