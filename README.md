@@ -66,6 +66,9 @@ I'd love to make a script which would collate these host files together, then I 
 
 Below are the host files which have been merged together to make the host file found on this repo. If I stumble across any other host lists which I merge into the Master-hosts file, I'll also link it here too.
 
+<details><summary>Expand Table</summary>
+<p>
+
 List Author (A - Z) | List Name | Page Links 
 --- | --- | ---  
 Abuse.ch | URLhaus Host File | [Raw Page Link](https://urlhaus.abuse.ch/downloads/hostfile/)
@@ -158,3 +161,5 @@ Ultimate Hosts Blacklist | hosts1 | [Raw Github](https://raw.githubusercontent.c
 Ultimate Hosts Blacklist | hosts2 | [Raw Github](https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2)
 Ultimate Hosts Blacklist | hosts3 | [Raw Github](https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3)
 ZeroDot1 | Browser Based Coin Miners | [Gitlab](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser)
+</p>
+</details>
