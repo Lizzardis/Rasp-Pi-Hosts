@@ -18,9 +18,10 @@ Editing the amount of Queries shown in the recent query logs in Pi Hole can be c
 Find this section of code:
 
 > // If we don't ask filtering and also not for all queries, just request the most recent 100 queries
-else if (!("all in GETDict)) {
-  APIstring += "=100;
-}
+
+> else if (!("all in GETDict)) {
+>   APIstring += "=100;
+> }
 
 Then edit the API String to the *largest* amount of queries that should be shown via the dropdown box.
 
