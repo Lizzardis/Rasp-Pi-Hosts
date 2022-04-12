@@ -20,7 +20,9 @@ Find this section of code:
 > // If we don't ask filtering and also not for all queries, just request the most recent 100 queries
 
 > else if (!("all in GETDict)) {
+
 >   APIstring += "=100;
+
 > }
 
 Then edit the API String to the *largest* amount of queries that should be shown via the dropdown box.
@@ -28,9 +30,11 @@ Then edit the API String to the *largest* amount of queries that should be shown
 Next, scroll down further & find this code:
 
 > lengthMenu: [
-      [10, 25, 50, 100, -1],
-      [10, 25, 50, 100, "All"]
-    ],
+
+
+>     [10, 25, 50, 100, -1],
+>     [10, 25, 50, 100, "All"]
+>    ],
 
 Whichever number is in the left-most slot is the "default" which shows whenever the query log is opened. Changing All to be there is NOT advised. However, all the other numbers can be changed, which will also edit the dropdown too. Like so:
 
