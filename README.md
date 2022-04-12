@@ -13,35 +13,38 @@ The script is set to automatically authorise all changes, and then automatically
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 Editing the amount of Queries shown in the recent query logs in Pi Hole can be changed via the following means:
 
-> sudo nano /var/www/html/admin/scripts/pi-hole/js/queries.js
+```
+sudo nano /var/www/html/admin/scripts/pi-hole/js/queries.js
+```
 
 Find this section of code:
 
-> // If we don't ask filtering and also not for all queries, just request the most recent 100 queries
-
-> else if (!("all in GETDict)) {
-
->   APIstring += "=100;
-
-> }
+```
+// If we don't ask filtering and also not for all queries, just request the most recent 100 queries
+else if (!("all in GETDict)) {
+  APIstring += "=100;
+}
+```
 
 Then edit the API String to the *largest* amount of queries that should be shown via the dropdown box.
 
 Next, scroll down further & find this code:
 
-> lengthMenu: [
-
-
->     [10, 25, 50, 100, -1],
->     [10, 25, 50, 100, "All"]
->    ],
+```
+lengthMenu: [
+      [10, 25, 50, 100, -1],
+      [10, 25, 50, 100, "All"]
+    ],
+```
 
 Whichever number is in the left-most slot is the "default" which shows whenever the query log is opened. Changing All to be there is NOT advised. However, all the other numbers can be changed, which will also edit the dropdown too. Like so:
 
-> lengthmenu: [
+```
+lengthmenu: [
  [100, 50, 250, 500, -1],
  [100, 50, 250, 500, "All"]
-	],
+],
+```
 
 However, remember that the APIstring from above needs to also match the *biggest* number you have in this section.
 
