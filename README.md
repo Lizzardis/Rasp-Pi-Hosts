@@ -49,6 +49,31 @@ lengthmenu: [
 
 However, remember that the APIstring from above needs to also match the *biggest* number you have in this section.
 
+## Pi-Hole Error "Unable to complete update: Contact Support:
+This error likely comes from editing the above file to see more of the queries than default. I am assuming that the pihole devs are cross referencing the size of the files on disk, with that of the pihole update to make sure that mostly everything is the same. In this case, it is not.
+
+Rest assured, there is an easy fix, we unfortunately just have to remove the changes with these commands:
+
+Use this command if the "Contact Support" error pops up after the line "/var/www/html/admin"
+```
+cd /var/www/html/admin
+sudo git fetch --tags
+sudo git reset --hard
+```
+
+Or, use this command if the "Contact Support" error pops up after the line "/etc/.pihole"
+```
+cd /etc/.pihole
+sudo git fetch --tags
+sudo git reset --hard
+```
+
+Now, the error will probably pop up after the "/var/www/html/admin" line so obviously just use that command to straighten out the error. However, I have included the "/etc/.pihole" one, just in case.
+
+Once the commands have been run though,, you can exit Terminal, open it back up again & run "pihole -up" to update with no issues.
+
+Please keep in mind though... You will have to redo the section above to change the number of visible queries. Shouldn't take *too* long though.
+
 ## Master Hosts File
 One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
