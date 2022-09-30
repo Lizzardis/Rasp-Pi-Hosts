@@ -9,6 +9,57 @@ Script needs to reside in /home/pi & be made to be executed by root. Script can 
 
 The script is set to automatically authorise all changes, and then automatically restart the Pi.
 
+## Home-Assistant on Raspberry Pi
+After wanting to tinker with Home Assistant on the Raspberry Pi, the documentation seemed to suggest that I needed to reformat the Pi with the Home Assistant image, instead of Raspbain.
+This obviously wasn't ideal as I not only wanted to keep my current configuration, but I also wanted to keep my installation of Pi-Hole. Ergo, I searched for another answer & found the following commands from [LazyAdmin.nl](https://lazyadmin.nl/home-network/install-home-assistant-raspberry-pi/) which seemed to install Home Assistant perfectly fine, using Docker.
+
+**Make sure to run the "Update-Script.sh" above to ensure that everything is updated first, before installation of Home Assistant & Docker!**
+
+Now, onto the codes:
+ 
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+# Then run:
+
+sudo sh get-docker.sh
+```
+
+Once that has finished, you'll want to add the default Pi user into the Docker Group so that the 'Sudo' command does not have to be run every time:
+
+```
+sudo usermod -aG docker pi
+
+# Optional Command
+sudo chmod 666 /var/run/docker.sock
+```
+
+Now that Docker is all sorted, we'll move on to actually installing Home Assistant using the following command:
+**NOTE: This command says "raspberrypi3" at the end. If this is being done on a raspberrypi4 (or above) make sure to change that part of the code accordingly**
+```
+docker run -d \
+  --name homeassistant \
+  --privileged \
+  --restart=unless-stopped \
+  -e TZ=MY_TIME_ZONE \
+  -v /home/pi/ha:/config \
+  --network=host \
+  ghcr.io/home-assistant/raspberrypi4-homeassistant:stable
+  ```
+  
+This might take a short while to download & extract. However, once it is done, Home Assistant can be found via the local GUI Webpage found at <raspberrypi_IP>:8123
+
+Head to the webpage & run through the configuration for Home Assistant. 
+
+Next, we have to install Home Assistant Community Store so that we have access to 3rd party integrations *(as we do not have access to them normally since we installed via Docker)*
+
+```
+cd /home/pi/ha # This is where the Home Asistant files are stored
+# Then run:
+wget -O - https://get.hacs.xyz | bash -
+```
+
+
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
 
