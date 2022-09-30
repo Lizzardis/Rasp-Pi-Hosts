@@ -31,6 +31,7 @@ Once that has finished, you'll want to add the default Pi user into the Docker G
 sudo usermod -aG docker pi
 
 # Optional Command
+
 sudo chmod 666 /var/run/docker.sock
 ```
 
@@ -51,14 +52,25 @@ This might take a short while to download & extract. However, once it is done, H
 
 Head to the webpage & run through the configuration for Home Assistant. 
 
-Next, we have to install Home Assistant Community Store so that we have access to 3rd party integrations *(as we do not have access to them normally since we installed via Docker)*
+Next, we have to install Home Assistant Community Store so that we have access to 3rd party integrations *(as we do not have access to them normally since we installed via Docker)*.
 
 ```
 cd /home/pi/ha # This is where the Home Asistant files are stored
+
 # Then run:
+
 wget -O - https://get.hacs.xyz | bash -
 ```
 
+I'd advise at this point you restart the Home Assistant Docker Container using the following command:
+
+```
+docker restart homeassistant
+```
+
+Once Home Assistant is back up & running, head to the Home Assistant GUI & log in. Force a cache reset by pressing *"CTRL + F5"*. Then head to *"Settings > Devices & Services > Integrations"*. Tap the *"+ Add Integrations"* button in the bottom right and then find *"HACS"*.
+It will ask you to acknowledge some stuff. **TICK ALL THE BOXES!**
+Then follow the setup through to Github by authorising the device *(Make sure you're logged into Github)* then you're off to the races.
 
 ## Pi-Hole Query Change
 This file contains instructions on how to change the amount of queries that Pi-Hole shows by default in the Query Log. I found that 10 was far too little for the amount of queries my devices made, and needed to see much more. Hence, these instructions increase the default Queries to 100, but also increases the other "Number of Queries" options too.
