@@ -5,7 +5,10 @@ This is a private collection of tweaks or changes which are used on my Raspberry
 This Update-Script.sh is an executable .sh script which will automatically update the Raspberry Pi & also update the host lists contained within Pi-Hole.
 
 Script needs to reside in /home/pi & be made to be executed by root. Script can be ran using: 
+
+```
 > sudo bash update-script.sh
+```
 
 The script is set to automatically authorise all changes, and then automatically restart the Pi.
 
@@ -13,7 +16,7 @@ The script is set to automatically authorise all changes, and then automatically
 After wanting to tinker with Home Assistant on the Raspberry Pi, the documentation seemed to suggest that I needed to reformat the Pi with the Home Assistant image, instead of Raspbain.
 This obviously wasn't ideal as I not only wanted to keep my current configuration, but I also wanted to keep my installation of Pi-Hole. Ergo, I searched for another answer & found the following commands from [LazyAdmin.nl](https://lazyadmin.nl/home-network/install-home-assistant-raspberry-pi/) which seemed to install Home Assistant perfectly fine, using Docker.
 
-**Make sure to run the "Update-Script.sh" above to ensure that everything is updated first, before installation of Home Assistant & Docker!**
+**Make sure to run the `Update-Script.sh` above to ensure that everything is updated first, before installation of Home Assistant & Docker!**
 
 Now, onto the codes:
  
@@ -25,7 +28,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-Once that has finished, you'll want to add the default Pi user into the Docker Group so that the 'Sudo' command does not have to be run every time:
+Once that has finished, you'll want to add the default Pi user into the Docker Group so that the `Sudo` command does not have to be run every time:
 
 ```
 sudo usermod -aG docker pi
@@ -36,7 +39,7 @@ sudo chmod 666 /var/run/docker.sock
 ```
 
 Now that Docker is all sorted, we'll move on to actually installing Home Assistant using the following command:
-**NOTE: This command says "raspberrypi3" at the end. If this is being done on a raspberrypi4 (or above) make sure to change that part of the code accordingly**
+**NOTE: This command says `raspberrypi3` at the end. If this is being done on a raspberrypi4 (or above) make sure to change that part of the code accordingly**
 ```
 docker run -d \
   --name homeassistant \
@@ -48,7 +51,7 @@ docker run -d \
   ghcr.io/home-assistant/raspberrypi4-homeassistant:stable
   ```
   
-This might take a short while to download & extract. However, once it is done, Home Assistant can be found via the local GUI Webpage found at <raspberrypi_IP>:8123
+This might take a short while to download & extract. However, once it is done, Home Assistant can be found via the local GUI Webpage found at `http://raspberrypi_IP:8123`
 
 Head to the webpage & run through the configuration for Home Assistant. 
 
@@ -68,8 +71,10 @@ I'd advise at this point you restart the Home Assistant Docker Container using t
 docker restart homeassistant
 ```
 
-Once Home Assistant is back up & running, head to the Home Assistant GUI & log in. Force a cache reset by pressing *"CTRL + F5"*. Then head to *"Settings > Devices & Services > Integrations"*. Tap the *"+ Add Integrations"* button in the bottom right and then find *"HACS"*.
-It will ask you to acknowledge some stuff. **TICK ALL THE BOXES!**
+Once Home Assistant is back up & running, head to the Home Assistant GUI & log in. Force a cache reset by pressing `CTRL + F5`. Then head to `Settings > Devices & Services > Integrations`. Tap the `+ Add Integrations` button in the bottom right and then find `HACS`. It will ask you to acknowledge some stuff. 
+
+**TICK ALL THE BOXES!**
+
 Then follow the setup through to Github by authorising the device *(Make sure you're logged into Github)* then you're off to the races.
 
 ## Pi-Hole Query Change
@@ -112,28 +117,28 @@ lengthmenu: [
 
 However, remember that the APIstring from above needs to also match the *biggest* number you have in this section.
 
-## Pi-Hole Error "Unable to complete update: Contact Support:
+## Pi-Hole Error "Unable to complete update: Contact Support":
 This error likely comes from editing the above file to see more of the queries than default. I am assuming that the pihole devs are cross referencing the size of the files on disk, with that of the pihole update to make sure that mostly everything is the same. In this case, it is not.
 
 Rest assured, there is an easy fix, we unfortunately just have to remove the changes with these commands:
 
-Use this command if the "Contact Support" error pops up after the line "/var/www/html/admin"
+Use this command if the `Contact Support` error pops up after the line `/var/www/html/admin`
 ```
 cd /var/www/html/admin
 sudo git fetch --tags
 sudo git reset --hard
 ```
 
-Or, use this command if the "Contact Support" error pops up after the line "/etc/.pihole"
+Or, use this command if the `Contact Support` error pops up after the line `/etc/.pihole`
 ```
 cd /etc/.pihole
 sudo git fetch --tags
 sudo git reset --hard
 ```
 
-Now, the error will probably pop up after the "/var/www/html/admin" line so obviously just use that command to straighten out the error. However, I have included the "/etc/.pihole" one, just in case.
+Now, the error will probably pop up after the `/var/www/html/admin` line so obviously just use that command to straighten out the error. However, I have included the `/etc/.pihole` one, just in case.
 
-Once the commands have been run though,, you can exit Terminal, open it back up again & run "pihole -up" to update with no issues.
+Once the commands have been run though, you can exit Terminal, open it back up again & run `pihole -up` to update with no issues.
 
 Please keep in mind though... You will have to redo the section above to change the number of visible queries. Shouldn't take *too* long though.
 
@@ -142,7 +147,7 @@ One of the biggest files on this repo is a merged host list which consists of ov
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
 
-Ordering the lines A-Z in Notepad++ by going to *"Edit"* > *"Line Operations"* > *"Sort Lines Lexicographically Ascending"* & then going back into *"Edit"* > *"Line Operations"* then *"Remove Duplicate Lines"* to take care of the multiple instances of the same domain. 
+Ordering the lines A-Z in Notepad++ by going to `Edit` > `Line Operations` > *"Sort Lines Lexicographically Ascending"* & then going back into *"Edit"* > *"Line Operations"* then *"Remove Duplicate Lines"* to take care of the multiple instances of the same domain. 
 
 Furthermore, some of these lists use the old 127.0.0.1 loopback address. This has also been replaced with 0.0.0.0 - *a non-routable meta-address used to designate an invalid, unknown, or non applicable target* - as it is not only a lot quicker due to there being no wait time for a timeout resolution, but also it seems to be less resource intensive on older machines.
 
