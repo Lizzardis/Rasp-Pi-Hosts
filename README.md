@@ -192,7 +192,8 @@ Two different files in folder, when ran by the above conditions in Tautulli they
 https://gist.github.com/Generator/67da7dc859634046165320ef061769e0
 https://gist.github.com/Tinynja/2169be3f20b8656f67dbc89129d57598
 
-## Master Hosts File
+<details><summary>## Master Hosts Files</summary>
+<p>
 One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
@@ -305,4 +306,6 @@ Ultimate Hosts Blacklist | hosts2 | [Raw Github](https://raw.githubusercontent.c
 Ultimate Hosts Blacklist | hosts3 | [Raw Github](https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3)
 ZeroDot1 | Browser Based Coin Miners | [Gitlab](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser)
 </p>
+</p>
+</details>
 </details>
