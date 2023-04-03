@@ -192,7 +192,8 @@ Two different files in folder, when ran by the above conditions in Tautulli they
 https://gist.github.com/Generator/67da7dc859634046165320ef061769e0
 https://gist.github.com/Tinynja/2169be3f20b8656f67dbc89129d57598
 
-<details><summary>## Master Hosts Files</summary>
+## Master Hosts Files
+<details><summary></summary>
 <p>
 One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
