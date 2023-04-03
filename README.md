@@ -193,8 +193,7 @@ https://gist.github.com/Generator/67da7dc859634046165320ef061769e0
 https://gist.github.com/Tinynja/2169be3f20b8656f67dbc89129d57598
 
 ## Master Hosts Files
-<details><summary></summary>
-<p>
+<details><summary>Expand this section.</summary><p>
 One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
 
 The single host file comes to over 120MB blocking a whole range of different domains ranging from simple adverts, all the way to phishing servers. 
