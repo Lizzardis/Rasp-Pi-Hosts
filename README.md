@@ -1,5 +1,5 @@
 # Rasp-Pi-Misc
-This is a private collection of tweaks or changes which are used on my Raspberry Pi.
+This is a private collection of tweaks, hacks or code which I have taken from other parts of the web.
 
 ## Update-Script.sh
 This Update-Script.sh is an executable .sh script which will automatically update the Raspberry Pi & also update the host lists contained within Pi-Hole.
@@ -141,6 +141,56 @@ Now, the error will probably pop up after the `/var/www/html/admin` line so obvi
 Once the commands have been run though, you can exit Terminal, open it back up again & run `pihole -up` to update with no issues.
 
 Please keep in mind though... You will have to redo the section above to change the number of visible queries. Shouldn't take *too* long though.
+
+## qBittorrent & Plex Throttle
+
+### Dependencies
+* Python 3.6+
+* 'qbittorrent-api' Python Library
+	> py -m pip install qbittorrent-api
+* Tautulli
+
+#### Script Setup
+Edit `qbittorrent_throttle.py` *OR* `qbittorrent_throttle (No Python Pop-up).pyw` and set qBittorrent username, password and IP.  
+
+#### Tautulli Setup
+**Commum Scripts Settings in Tautulli:**   
+Taultulli > Settings > Notification Agents > Add a Notification Agent > Script  
+**Set** `Script Folder`  
+**Select** `qbittorrent_throttle.py` *OR*  `qbittorrent_throttle (No Python Pop-up).pyw`
+**Script Timeout** `0`  
+
+### Throttle only on wan connections
+**Notification conditions**:
+- **Condition {1}**: Stream Local is 0
+- **Condition {2}**: Action is play
+- **Condition {3}**: Streams is 0
+
+**Condition logic**: `{1} and {2} or {3}`
+
+###  Throttle Download/Upload Speed
+**Triggers:** 
+- Playback Start
+- Playback Stop
+
+**Arguments:**
+Set Download/Upload limit in KB/s. Set `-1` for unlimited
+- Playback Start:  `-D 1024 -U 1024`
+- Playback Stop:  `-D -1 -U -1`
+
+### Usage
+    -U		- Set max upload speed [KBs], use "-1" to set unlimited
+    -D		- Set max download speed [KBs], use "-1" to set unlimited
+    -h | --help	- Help
+
+### Different Files
+Two different files in folder, when ran by the above conditions in Tautulli they are exactly the same, however:
+- .pyw uses Windows Python Subsystem, therefore will *NOT* launch a console window when the script is triggered.
+- .py on the other hand, uses the Python console so that will be launched when the script is triggered & then quickly disappear. However, the console will steal the foreground from whatever program currently has it. Ergo, the .pyw might be best if using fullscreen applications.
+
+### Credits
+https://gist.github.com/Generator/67da7dc859634046165320ef061769e0
+https://gist.github.com/Tinynja/2169be3f20b8656f67dbc89129d57598
 
 ## Master Hosts File
 One of the biggest files on this repo is a merged host list which consists of over **3 Million domains** from all over which can be used as a central host file for Pi-Hole.
