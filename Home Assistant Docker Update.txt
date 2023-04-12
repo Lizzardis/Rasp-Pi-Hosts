@@ -1,0 +1,20 @@
+This is how to update the Home Assistant Docker Image.
+
+# if this returns "Image is up to date" then you can stop here
+docker pull ghcr.io/home-assistant/home-assistant:stable
+
+# stop the running container
+docker stop homeassistant
+
+# remove it from Docker's list of containers
+docker rm homeassistant
+
+# finally, start a new one
+docker run -d \
+  --name homeassistant \
+  --privileged \
+  --restart=unless-stopped \
+  -e TZ=Europe/London \
+  -v /home/pi/homeassistant/config \
+  --network=host \
+  ghcr.io/home-assistant/home-assistant:stable
